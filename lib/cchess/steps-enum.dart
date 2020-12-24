@@ -192,6 +192,8 @@ class StepsEnumerator {
     //to left
     for (var c = col - 1; c >= 0; c--) {
       final to = row * 9 + c;
+
+      print("车左查询棋子落点位置:$to");
       final target = phase.pieceAt(to);
 
       if (target == Piece.Empty) {
@@ -205,7 +207,7 @@ class StepsEnumerator {
     //to top
     for (var r = row - 1; r >= 0; r--) {
       final to = r * 9 + col;
-      print("落点位置+$to");
+      print("车上查询棋子落点位置:$to");
       final target = phase.pieceAt(to);
 
       if (target == Piece.Empty) {
@@ -219,6 +221,8 @@ class StepsEnumerator {
     //to right
     for (var c = col + 1; c < 9; c++) {
       final to = row * 9 + c;
+
+      print("车右查询棋子落点位置:$to");
       final target = phase.pieceAt(to);
 
       if (target == Piece.Empty) {
@@ -230,9 +234,10 @@ class StepsEnumerator {
     }
 
     //to down
-    for (var r = row + 1; r >= 0; r++) {
+    for (var r = row + 1; r < 10; r++) {
       final to = r * 9 + col;
 
+      print("车下查询棋子落点位置:$to");
       final target = phase.pieceAt(to);
 
       if (target == Piece.Empty) {

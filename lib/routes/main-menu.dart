@@ -1,3 +1,5 @@
+import 'package:chess_override/engine/engine.dart';
+
 import '../common/color-consts.dart';
 import '../main.dart';
 import 'battle-page.dart';
@@ -100,7 +102,7 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
               '单机对战',
               style: menuItemStyle,
             ),
-            onPressed: () {},
+            onPressed: () => navigateTo(BattlePage(EngineType.Native)),
           ),
           Expanded(child: SizedBox()),
           FlatButton(
@@ -108,7 +110,7 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
               '挑战云主机',
               style: menuItemStyle,
             ),
-            onPressed: () => navigateTo(BattlePage()),
+            onPressed: () => navigateTo(BattlePage(EngineType.Cloud)),
           ),
           Expanded(child: SizedBox()),
           FlatButton(

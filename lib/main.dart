@@ -36,7 +36,7 @@ class _ChessRoadAppState extends State<ChessRoadApp>{
   @override
   void initState(){
     super.initState();
-    Audios.loopBgm('bg_music.mp3');
+    //Audios.loopBgm('bg_music.mp3');
     //Player.loadProfile();
   }
 

@@ -21,13 +21,16 @@ class ChessDB{
     );
 
     final httpClient = HttpClient();
+    //final request = httpClient.getUrl(url);
+    //final response = request.close();
+    //print("获取数据$request");
 
     try{
       final request = await httpClient.getUrl(url);
       final response = await request.close();
       return await response.transform(utf8.decoder).join();
     } catch(e){
-      print('Error: $e');
+      print('连接云库失败Error: $e');
     } finally{
       httpClient.close();
     }

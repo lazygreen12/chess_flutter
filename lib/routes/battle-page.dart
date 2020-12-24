@@ -1,3 +1,5 @@
+import '../engine/engine.dart';
+import '../engine/native-engine.dart';
 import '../services/audio.dart';
 
 import '../cchess/cc-base.dart';
@@ -13,6 +15,12 @@ class BattlePage extends StatefulWidget {
   static double boardMargin = 10.0,
       screenPaddingH = 10.0;
 
+  final EngineType engineType;
+  final AiEngine engine;
+
+  // 根据场景创建云库引擎或是原生的单机 AI 引擎
+  BattlePage(this.engineType) :
+        engine = engineType == EngineType.Cloud ? CloudEngine() : NativeEngine();
 
   @override
   _BattlePageState createState() => _BattlePageState();
@@ -41,6 +49,10 @@ class _BattlePageState extends State<BattlePage> {
 
   // 由 BattlePage 的 State 类来处理棋盘的点击事件
   onBoardTap(BuildContext context, int index) {
+
+
+
+
     final phase = Battle.shared.phase;
 
     //仅 Phase 中的 side 指示一方能动棋
@@ -154,6 +166,15 @@ class _BattlePageState extends State<BattlePage> {
     super.initState();
     // 使用默认的「新对局」棋子分布
     Battle.shared.init();
+    //启动引擎
+    widget.engine.startup();
+  }
+
+  @override
+  void dispose(){
+    // 关闭引擎
+    widget.engine.shutdown();
+    super.dispose();
   }
 
   // 标题、活动状态、顶部按钮等
@@ -176,7 +197,7 @@ class _BattlePageState extends State<BattlePage> {
               Expanded(child: SizedBox()),
               Hero(tag: 'logo', child: Image.asset('images/logo.png')),
               SizedBox(width: 10),
-              Text('挑战云主机', style: titleStyle,),
+              Text(widget.engineType == EngineType.Cloud ? '挑战云主机' : '单机对战', style: titleStyle),
               Expanded(child: SizedBox()),
               IconButton(
                 icon: Icon(Icons.settings, color: ColorConsts.DarkTextPrimary,),
@@ -314,7 +335,7 @@ class _BattlePageState extends State<BattlePage> {
   engineToGo() async {
     changeStatus('对方思考ing');
 
-    final response = await CloudEngine().search(Battle.shared.phase);
+    final response = await widget.engine.search(Battle.shared.phase);
 
     if (response.type == 'move') {
       final step = response.value;

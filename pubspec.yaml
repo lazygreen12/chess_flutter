@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   audioplayers: ^0.14.0
+  path_provider: ^1.6.1
 
 dev_dependencies:
   flutter_test:
@@ -99,3 +100,5 @@ flutter:
     - assets/audios/lose.mp3
     - assets/audios/move.mp3
     - assets/audios/win.mp3
+
+    - assets/book.dat
