@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		2E18D799D83418C54290385C /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A41FA07E5B7ECDE134518E /* libPods-Runner.a */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */; };
@@ -15,6 +14,22 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		F85EB87E2594D1F300DD5D62 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = F85EB87C2594D1F300DD5D62 /* GeneratedPluginRegistrant.m */; };
+		F85EB8F02594D7CD00DD5D62 /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8D72594D7CD00DD5D62 /* pipe.cpp */; };
+		F85EB8F12594D7CD00DD5D62 /* genmoves.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8DA2594D7CD00DD5D62 /* genmoves.cpp */; };
+		F85EB8F22594D7CD00DD5D62 /* preeval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8DD2594D7CD00DD5D62 /* preeval.cpp */; };
+		F85EB8F32594D7CD00DD5D62 /* pregen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8DF2594D7CD00DD5D62 /* pregen.cpp */; };
+		F85EB8F42594D7CD00DD5D62 /* evaluate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E02594D7CD00DD5D62 /* evaluate.cpp */; };
+		F85EB8F52594D7CD00DD5D62 /* ucci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E12594D7CD00DD5D62 /* ucci.cpp */; };
+		F85EB8F62594D7CD00DD5D62 /* search.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E22594D7CD00DD5D62 /* search.cpp */; };
+		F85EB8F72594D7CD00DD5D62 /* eleeye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E32594D7CD00DD5D62 /* eleeye.cpp */; };
+		F85EB8F82594D7CD00DD5D62 /* movesort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E62594D7CD00DD5D62 /* movesort.cpp */; };
+		F85EB8F92594D7CD00DD5D62 /* book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E72594D7CD00DD5D62 /* book.cpp */; };
+		F85EB8FA2594D7CD00DD5D62 /* hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8E82594D7CD00DD5D62 /* hash.cpp */; };
+		F85EB8FB2594D7CD00DD5D62 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8ED2594D7CD00DD5D62 /* position.cpp */; };
+		F85EB8FF2594DABD00DD5D62 /* command-queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB8FD2594DABD00DD5D62 /* command-queue.cpp */; };
+		F85EB9022594DBA300DD5D62 /* command-channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85EB9012594DBA300DD5D62 /* command-channel.cpp */; };
+		F85EB9052594DE2C00DD5D62 /* CChessEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F85EB9042594DE2C00DD5D62 /* CChessEngine.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +46,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
-		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		26FD391861A47D8ED486C0AC /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		29A786D7342A3B5ED4830517 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
@@ -49,6 +62,42 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA06272940187B062940FC2E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		F85EB87C2594D1F300DD5D62 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		F85EB87D2594D1F300DD5D62 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+		F85EB8D62594D7CD00DD5D62 /* book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = book.h; sourceTree = "<group>"; };
+		F85EB8D72594D7CD00DD5D62 /* pipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pipe.cpp; sourceTree = "<group>"; };
+		F85EB8D82594D7CD00DD5D62 /* ucci.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ucci.h; sourceTree = "<group>"; };
+		F85EB8D92594D7CD00DD5D62 /* preeval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preeval.h; sourceTree = "<group>"; };
+		F85EB8DA2594D7CD00DD5D62 /* genmoves.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = genmoves.cpp; sourceTree = "<group>"; };
+		F85EB8DB2594D7CD00DD5D62 /* x86asm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x86asm.h; sourceTree = "<group>"; };
+		F85EB8DC2594D7CD00DD5D62 /* parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse.h; sourceTree = "<group>"; };
+		F85EB8DD2594D7CD00DD5D62 /* preeval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = preeval.cpp; sourceTree = "<group>"; };
+		F85EB8DE2594D7CD00DD5D62 /* pregen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pregen.h; sourceTree = "<group>"; };
+		F85EB8DF2594D7CD00DD5D62 /* pregen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pregen.cpp; sourceTree = "<group>"; };
+		F85EB8E02594D7CD00DD5D62 /* evaluate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = evaluate.cpp; sourceTree = "<group>"; };
+		F85EB8E12594D7CD00DD5D62 /* ucci.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ucci.cpp; sourceTree = "<group>"; };
+		F85EB8E22594D7CD00DD5D62 /* search.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = search.cpp; sourceTree = "<group>"; };
+		F85EB8E32594D7CD00DD5D62 /* eleeye.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eleeye.cpp; sourceTree = "<group>"; };
+		F85EB8E42594D7CD00DD5D62 /* movesort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movesort.h; sourceTree = "<group>"; };
+		F85EB8E52594D7CD00DD5D62 /* pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pipe.h; sourceTree = "<group>"; };
+		F85EB8E62594D7CD00DD5D62 /* movesort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = movesort.cpp; sourceTree = "<group>"; };
+		F85EB8E72594D7CD00DD5D62 /* book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = book.cpp; sourceTree = "<group>"; };
+		F85EB8E82594D7CD00DD5D62 /* hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hash.cpp; sourceTree = "<group>"; };
+		F85EB8E92594D7CD00DD5D62 /* rc4prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4prng.h; sourceTree = "<group>"; };
+		F85EB8EA2594D7CD00DD5D62 /* search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = search.h; sourceTree = "<group>"; };
+		F85EB8EB2594D7CD00DD5D62 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		F85EB8EC2594D7CD00DD5D62 /* position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
+		F85EB8ED2594D7CD00DD5D62 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
+		F85EB8EE2594D7CD00DD5D62 /* base2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base2.h; sourceTree = "<group>"; };
+		F85EB8EF2594D7CD00DD5D62 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		F85EB8FC2594DA5F00DD5D62 /* engine-state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "engine-state.h"; path = "../../../eleeye/engine-state.h"; sourceTree = "<group>"; };
+		F85EB8FD2594DABD00DD5D62 /* command-queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "command-queue.cpp"; sourceTree = "<group>"; };
+		F85EB8FE2594DABD00DD5D62 /* command-queue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = "command-queue.h"; sourceTree = "<group>"; };
+		F85EB9002594DB7A00DD5D62 /* command-channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "command-channel.h"; path = "../../../eleeye/command-channel.h"; sourceTree = "<group>"; };
+		F85EB9012594DBA300DD5D62 /* command-channel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "command-channel.cpp"; sourceTree = "<group>"; };
+		F85EB9032594DC6700DD5D62 /* eleeye.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = eleeye.h; path = ../../../eleeye/eleeye.h; sourceTree = "<group>"; };
+		F85EB9042594DE2C00DD5D62 /* CChessEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CChessEngine.mm; sourceTree = "<group>"; };
+		F85EB9062594DE3D00DD5D62 /* CChessEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CChessEngine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +127,6 @@
 				26FD391861A47D8ED486C0AC /* Pods-Runner.release.xcconfig */,
 				BA06272940187B062940FC2E /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -115,15 +163,18 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				F85EB8D52594D7CD00DD5D62 /* engine */,
 				7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */,
 				7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */,
+				F85EB87D2594D1F300DD5D62 /* GeneratedPluginRegistrant.h */,
+				F85EB87C2594D1F300DD5D62 /* GeneratedPluginRegistrant.m */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
 				97C147021CF9000F007C117D /* Info.plist */,
 				97C146F11CF9000F007C117D /* Supporting Files */,
-				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
-				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
+				F85EB9042594DE2C00DD5D62 /* CChessEngine.mm */,
+				F85EB9062594DE3D00DD5D62 /* CChessEngine.h */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -134,6 +185,45 @@
 				97C146F21CF9000F007C117D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F85EB8D52594D7CD00DD5D62 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				F85EB8D62594D7CD00DD5D62 /* book.h */,
+				F85EB8D72594D7CD00DD5D62 /* pipe.cpp */,
+				F85EB8D82594D7CD00DD5D62 /* ucci.h */,
+				F85EB8D92594D7CD00DD5D62 /* preeval.h */,
+				F85EB8DA2594D7CD00DD5D62 /* genmoves.cpp */,
+				F85EB8DB2594D7CD00DD5D62 /* x86asm.h */,
+				F85EB8DC2594D7CD00DD5D62 /* parse.h */,
+				F85EB8DD2594D7CD00DD5D62 /* preeval.cpp */,
+				F85EB8DE2594D7CD00DD5D62 /* pregen.h */,
+				F85EB8DF2594D7CD00DD5D62 /* pregen.cpp */,
+				F85EB8E02594D7CD00DD5D62 /* evaluate.cpp */,
+				F85EB8E12594D7CD00DD5D62 /* ucci.cpp */,
+				F85EB8E22594D7CD00DD5D62 /* search.cpp */,
+				F85EB8E32594D7CD00DD5D62 /* eleeye.cpp */,
+				F85EB8E42594D7CD00DD5D62 /* movesort.h */,
+				F85EB8E52594D7CD00DD5D62 /* pipe.h */,
+				F85EB8E62594D7CD00DD5D62 /* movesort.cpp */,
+				F85EB8E72594D7CD00DD5D62 /* book.cpp */,
+				F85EB8E82594D7CD00DD5D62 /* hash.cpp */,
+				F85EB8E92594D7CD00DD5D62 /* rc4prng.h */,
+				F85EB8EA2594D7CD00DD5D62 /* search.h */,
+				F85EB8EB2594D7CD00DD5D62 /* hash.h */,
+				F85EB8EC2594D7CD00DD5D62 /* position.h */,
+				F85EB8ED2594D7CD00DD5D62 /* position.cpp */,
+				F85EB8EE2594D7CD00DD5D62 /* base2.h */,
+				F85EB8EF2594D7CD00DD5D62 /* base.h */,
+				F85EB8FC2594DA5F00DD5D62 /* engine-state.h */,
+				F85EB8FD2594DABD00DD5D62 /* command-queue.cpp */,
+				F85EB8FE2594DABD00DD5D62 /* command-queue.h */,
+				F85EB9002594DB7A00DD5D62 /* command-channel.h */,
+				F85EB9012594DBA300DD5D62 /* command-channel.cpp */,
+				F85EB9032594DC6700DD5D62 /* eleeye.h */,
+			);
+			path = engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +372,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85EB8F32594D7CD00DD5D62 /* pregen.cpp in Sources */,
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
+				F85EB8F52594D7CD00DD5D62 /* ucci.cpp in Sources */,
+				F85EB8FF2594DABD00DD5D62 /* command-queue.cpp in Sources */,
+				F85EB8F22594D7CD00DD5D62 /* preeval.cpp in Sources */,
+				F85EB8F12594D7CD00DD5D62 /* genmoves.cpp in Sources */,
+				F85EB9052594DE2C00DD5D62 /* CChessEngine.mm in Sources */,
+				F85EB8F92594D7CD00DD5D62 /* book.cpp in Sources */,
+				F85EB8F62594D7CD00DD5D62 /* search.cpp in Sources */,
+				F85EB8F42594D7CD00DD5D62 /* evaluate.cpp in Sources */,
 				97C146F31CF9000F007C117D /* main.m in Sources */,
-				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				F85EB8F82594D7CD00DD5D62 /* movesort.cpp in Sources */,
+				F85EB87E2594D1F300DD5D62 /* GeneratedPluginRegistrant.m in Sources */,
+				F85EB8FA2594D7CD00DD5D62 /* hash.cpp in Sources */,
+				F85EB8F02594D7CD00DD5D62 /* pipe.cpp in Sources */,
+				F85EB9022594DBA300DD5D62 /* command-channel.cpp in Sources */,
+				F85EB8F72594D7CD00DD5D62 /* eleeye.cpp in Sources */,
+				F85EB8FB2594D7CD00DD5D62 /* position.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,13 +471,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 259QJ6U9NT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Runner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -494,13 +604,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 259QJ6U9NT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Runner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -517,13 +632,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 259QJ6U9NT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Runner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",

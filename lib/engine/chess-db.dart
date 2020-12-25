@@ -21,9 +21,6 @@ class ChessDB{
     );
 
     final httpClient = HttpClient();
-    //final request = httpClient.getUrl(url);
-    //final response = request.close();
-    //print("获取数据$request");
 
     try{
       final request = await httpClient.getUrl(url);
