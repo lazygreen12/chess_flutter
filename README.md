@@ -1,6 +1,6 @@
 # 象棋游戏
 
-###基于flutter+dart开发的跨平台游戏应用
+#### 基于flutter+dart开发的跨平台游戏应用
 
 ## Getting Started
 
