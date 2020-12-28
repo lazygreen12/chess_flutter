@@ -1,4 +1,5 @@
 import 'package:chess_override/engine/engine.dart';
+import 'package:chess_override/routes/setting-page.dart';
 
 import '../common/color-consts.dart';
 import '../main.dart';
@@ -90,16 +91,16 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
             child: SizedBox(),
             flex: 4,
           ),
-          Hero(tag: 'logo', child: Image.asset('images/logo.png')),
+          //Hero(tag: 'logo', child: Image.asset('images/logo.png')),
           Expanded(child: SizedBox()),
           Transform.scale(
             scale: inAnimation.value,
             child: Text('中国象棋', style: nameStyle, textAlign: TextAlign.center),
           ),
-          Expanded(child: SizedBox()),
+          Expanded(child: SizedBox(),flex: 2,),
           FlatButton(
             child: Text(
-              '单机对战',
+              '对战',
               style: menuItemStyle,
             ),
             onPressed: () => navigateTo(BattlePage(EngineType.Native)),
@@ -107,19 +108,19 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
           Expanded(child: SizedBox()),
           FlatButton(
             child: Text(
-              '挑战云主机',
+              '服务器',
               style: menuItemStyle,
             ),
             onPressed: () => navigateTo(BattlePage(EngineType.Cloud)),
           ),
-          Expanded(child: SizedBox()),
-          FlatButton(
-            child: Text('排行榜', style: menuItemStyle),
-            onPressed: () {},
-          ),
+          // Expanded(child: SizedBox()),
+          // FlatButton(
+          //   child: Text('排行榜', style: menuItemStyle),
+          //   onPressed: () {},
+          // ),
           Expanded(
             child: SizedBox(),
-            flex: 4,
+            flex: 6,
           )
         ],
       ),
@@ -143,7 +144,8 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
           Positioned(
             child: IconButton(
                 icon: Icon(Icons.settings, color: ColorConsts.Primary),
-                onPressed: () {}),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SettingsPage())),
+            ),
             top: ChessRoadApp.StatusBarHeight,
             left: 10,
           )

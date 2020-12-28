@@ -1,6 +1,12 @@
+import 'package:chess_override/routes/setting-page.dart';
+
+import '../cchess/step-name.dart';
+import '../common/Toast.dart';
+import '../engine/analysis.dart';
+
 import '../engine/engine.dart';
 import '../engine/native-engine.dart';
-import '../services/audio.dart';
+import '../services/audios.dart';
 
 import '../cchess/cc-base.dart';
 import '../common/color-consts.dart';
@@ -12,15 +18,15 @@ import 'package:flutter/material.dart';
 
 class BattlePage extends StatefulWidget {
   // 棋盘的纵横方向的边距
-  static double boardMargin = 10.0,
-      screenPaddingH = 10.0;
+  static double boardMargin = 10.0, screenPaddingH = 10.0;
 
   final EngineType engineType;
   final AiEngine engine;
 
   // 根据场景创建云库引擎或是原生的单机 AI 引擎
-  BattlePage(this.engineType) :
-        engine = engineType == EngineType.Cloud ? CloudEngine() : NativeEngine();
+  BattlePage(this.engineType)
+      : engine =
+            engineType == EngineType.Cloud ? CloudEngine() : NativeEngine();
 
   @override
   _BattlePageState createState() => _BattlePageState();
@@ -29,15 +35,14 @@ class BattlePage extends StatefulWidget {
 class _BattlePageState extends State<BattlePage> {
   String _status = '';
 
+  bool _analysising = false;
+
   changeStatus(String status) => setState(() => _status = status);
 
   void calcScreenPaddingH() {
     // 当屏幕的纵横比小于16/9时，限制棋盘的宽度
-    final windowSize = MediaQuery
-        .of(context)
-        .size;
-    double height = windowSize.height,
-        width = windowSize.width;
+    final windowSize = MediaQuery.of(context).size;
+    double height = windowSize.height, width = windowSize.width;
 
     if (height / width < 16.0 / 9.0) {
       width = height * 9 / 16;
@@ -49,10 +54,6 @@ class _BattlePageState extends State<BattlePage> {
 
   // 由 BattlePage 的 State 类来处理棋盘的点击事件
   onBoardTap(BuildContext context, int index) {
-
-
-
-
     final phase = Battle.shared.phase;
 
     //仅 Phase 中的 side 指示一方能动棋
@@ -77,7 +78,7 @@ class _BattlePageState extends State<BattlePage> {
 
         switch (result) {
           case BattleResult.Pending:
-          // 玩家走一步棋后，如果游戏还没有结束，则启动引擎走棋
+            // 玩家走一步棋后，如果游戏还没有结束，则启动引擎走棋
             engineToGo();
             break;
           case BattleResult.Win:
@@ -108,15 +109,19 @@ class _BattlePageState extends State<BattlePage> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('赢了', style: TextStyle(color: ColorConsts.Primary),),
+            title: Text(
+              '赢了',
+              style: TextStyle(color: ColorConsts.Primary),
+            ),
             content: Text('恭喜您取得了伟大的胜利！'),
             actions: <Widget>[
               FlatButton(onPressed: newGame, child: Text('再来一局')),
-              FlatButton(onPressed: () => Navigator.of(context).pop(), child: Text('关闭')),
+              FlatButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text('关闭')),
             ],
           );
-        }
-    );
+        });
   }
 
   // 显示失败框
@@ -134,7 +139,9 @@ class _BattlePageState extends State<BattlePage> {
           content: Text('勇士！坚定战斗，虽败犹荣！'),
           actions: <Widget>[
             FlatButton(child: Text('再来一盘'), onPressed: newGame),
-            FlatButton(child: Text('关闭'), onPressed: () => Navigator.of(context).pop()),
+            FlatButton(
+                child: Text('关闭'),
+                onPressed: () => Navigator.of(context).pop()),
           ],
         );
       },
@@ -150,15 +157,19 @@ class _BattlePageState extends State<BattlePage> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('和了', style: TextStyle(color: ColorConsts.Primary),),
+            title: Text(
+              '和了',
+              style: TextStyle(color: ColorConsts.Primary),
+            ),
             content: Text('您用自己的力量捍卫了和平！'),
             actions: <Widget>[
               FlatButton(onPressed: newGame, child: Text('再来一局')),
-              FlatButton(onPressed: () => Navigator.of(context).pop(), child: Text('关闭')),
+              FlatButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text('关闭')),
             ],
           );
-        }
-    );
+        });
   }
 
   @override
@@ -171,7 +182,7 @@ class _BattlePageState extends State<BattlePage> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     // 关闭引擎
     widget.engine.shutdown();
     super.dispose();
@@ -179,10 +190,10 @@ class _BattlePageState extends State<BattlePage> {
 
   // 标题、活动状态、顶部按钮等
   Widget createPageHeader() {
-    final titleStyle = TextStyle(
-        fontSize: 28, color: ColorConsts.DarkTextPrimary);
-    final subTitleStyle = TextStyle(
-        fontSize: 16, color: ColorConsts.DarkTextSecondary);
+    final titleStyle =
+        TextStyle(fontSize: 28, color: ColorConsts.DarkTextPrimary);
+    final subTitleStyle =
+        TextStyle(fontSize: 16, color: ColorConsts.DarkTextSecondary);
 
     return Container(
       margin: EdgeInsets.only(top: ChessRoadApp.StatusBarHeight),
@@ -195,14 +206,19 @@ class _BattlePageState extends State<BattlePage> {
                   color: ColorConsts.DarkTextPrimary,
                   onPressed: () => Navigator.of(context).pop()),
               Expanded(child: SizedBox()),
-              Hero(tag: 'logo', child: Image.asset('images/logo.png')),
-              SizedBox(width: 10),
-              Text(widget.engineType == EngineType.Cloud ? '挑战云主机' : '单机对战', style: titleStyle),
+              //Hero(tag: 'logo', child: Image.asset('images/logo.png')),
+              // SizedBox(width: 10),
+              Text(widget.engineType == EngineType.Cloud ? '挑战服务器' : '本地对战',
+                  style: titleStyle),
               Expanded(child: SizedBox()),
               IconButton(
-                icon: Icon(Icons.settings, color: ColorConsts.DarkTextPrimary,),
-                onPressed: () {},
-              ),
+                  icon: Icon(
+                    Icons.settings,
+                    color: ColorConsts.DarkTextPrimary,
+                  ),
+                  onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                      ))
             ],
           ),
           Container(
@@ -220,7 +236,6 @@ class _BattlePageState extends State<BattlePage> {
           )
         ],
       ),
-
     );
   }
 
@@ -235,10 +250,8 @@ class _BattlePageState extends State<BattlePage> {
         color: ColorConsts.BoardBackground,
       ),
       child: BoardWidget(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width - BattlePage.screenPaddingH * 2,
+        width:
+            MediaQuery.of(context).size.width - BattlePage.screenPaddingH * 2,
         onBoardTap: onBoardTap,
       ),
     );
@@ -254,27 +267,31 @@ class _BattlePageState extends State<BattlePage> {
       ),
       margin: EdgeInsets.symmetric(horizontal: BattlePage.screenPaddingH),
       padding: EdgeInsets.symmetric(vertical: 2),
-      child: Row(
-        children: <Widget>[
-          Expanded(child: SizedBox()),
-          FlatButton(
-              onPressed: newGame, child: Text('新对局', style: buttonStyle,)),
-          Expanded(child: SizedBox()),
-          FlatButton(onPressed: null, child: Text('悔棋', style: buttonStyle,)),
-          Expanded(child: SizedBox()),
-          FlatButton(onPressed: null, child: Text('分析局面', style: buttonStyle,)),
-          Expanded(child: SizedBox()),
-        ],
-      ),
+      child: Row(children: <Widget>[
+        Expanded(child: SizedBox()),
+        FlatButton(child: Text('新对局', style: buttonStyle), onPressed: newGame),
+        Expanded(child: SizedBox()),
+        FlatButton(
+          child: Text('悔棋', style: buttonStyle),
+          onPressed: () {
+            Battle.shared.regret(steps: 2);
+            setState(() {});
+          },
+        ),
+        Expanded(child: SizedBox()),
+        FlatButton(
+          child: Text('分析局面', style: buttonStyle),
+          onPressed: _analysising ? null : analysisPhase,
+        ),
+        Expanded(child: SizedBox()),
+      ]),
     );
   }
 
   Widget buildFooter() {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
 
-    final manualText = '<暂无棋谱>';
+    final manualText = Battle.shared.phase.manualText;
 
     if (size.height / size.width > 16 / 9) {
       //长屏幕显示落法列表
@@ -307,28 +324,26 @@ class _BattlePageState extends State<BattlePage> {
     final manualStyle = TextStyle(fontSize: 18, height: 1.5);
 
     return Expanded(
-        child: IconButton(
-          icon: Icon(Icons.expand_less, color: ColorConsts.DarkTextPrimary),
-          onPressed: () =>
-              showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text(
-                        '棋谱', style: TextStyle(color: ColorConsts.Primary),),
-                      content: SingleChildScrollView(
-                        child: Text(text, style: manualStyle),),
-                      actions: [
-                        FlatButton(
-                          onPressed: () => Navigator.of(context).pop(),
-                          child: Text('好的'),
-                        ),
-                      ],
-                    );
-                  }
-              ),
-        )
+      child: IconButton(
+        icon: Icon(Icons.expand_less, color: ColorConsts.DarkTextPrimary),
+        onPressed: () => showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('棋谱', style: TextStyle(color: ColorConsts.Primary)),
+              content:
+                  SingleChildScrollView(child: Text(text, style: manualStyle)),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('好的'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 
@@ -401,7 +416,89 @@ class _BattlePageState extends State<BattlePage> {
 
     return Scaffold(
       backgroundColor: ColorConsts.DarkBackground,
-      body: Column(children: <Widget>[header, board, operatorBar, footer],),
+      body: Column(
+        children: <Widget>[header, board, operatorBar, footer],
+      ),
+    );
+  }
+
+  analysisPhase() async {
+    //
+    Toast.toast(context, msg: '正在分析局面...', position: ToastPostion.bottom);
+
+    setState(() => _analysising = true);
+
+    try {
+      final result = await CloudEngine.analysis(Battle.shared.phase);
+
+      // 云库反回了正确的分析结果
+      if (result.type == 'analysis') {
+        //
+        List<AnalysisItem> items = result.value;
+        items.forEach(
+          (item) => item.stepName = StepName.translate(
+            Battle.shared.phase,
+            Move.fromEngineStep(item.move),
+          ),
+        );
+        showAnalysisItems(
+          context,
+          title: '推荐招法',
+          items: result.value,
+          callback: (index) => Navigator.of(context).pop(),
+        );
+      } else if (result.type == 'no-result') {
+        // 云库表示无分析结论
+        // 我们提交服务器后台进行计算，玩家可以过一会再点击分析来查看分析结论
+        Toast.toast(
+          context,
+          msg: '已请求服务器计算，请稍后查看！',
+          position: ToastPostion.bottom,
+        );
+      } else {
+        Toast.toast(
+          context,
+          msg: '错误: ${result.type}',
+          position: ToastPostion.bottom,
+        );
+      }
+    } catch (e) {
+      Toast.toast(context, msg: '错误: $e', position: ToastPostion.bottom);
+    } finally {
+      setState(() => _analysising = false);
+    }
+  }
+
+  // 显示分析结论
+  showAnalysisItems(
+    BuildContext context, {
+    String title,
+    List<AnalysisItem> items,
+    Function(AnalysisItem item) callback,
+  }) {
+    //
+    final List<Widget> children = [];
+
+    for (var item in items) {
+      children.add(
+        ListTile(
+          title: Text(item.stepName, style: TextStyle(fontSize: 18)),
+          subtitle: Text('胜率：${item.winrate}%'),
+          trailing: Text('分数：${item.score}'),
+          onTap: () => callback(item),
+        ),
+      );
+      children.add(Divider());
+    }
+
+    children.insert(0, SizedBox(height: 10));
+    children.add(SizedBox(height: 56));
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) => SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.min, children: children),
+      ),
     );
   }
 }

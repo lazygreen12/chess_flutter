@@ -6,7 +6,7 @@ import 'phase.dart';
 //着法合法性验证
 class StepValidate {
   static bool validate(Phase phase, Move move) {
-    if (Side.of(phase.pieceAt(move.to)) == phase.side) return false;
+    if (Side.of(phase.pieceAt(move.to)) == phase.side) return true;
 
     final piece = phase.pieceAt(move.from);
 

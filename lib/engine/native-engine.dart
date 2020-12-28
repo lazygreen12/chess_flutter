@@ -8,9 +8,7 @@ import '../engine/engine.dart';
 
 class NativeEngine extends AiEngine {
   //
-  static const platform = const MethodChannel(
-      'cn.apppk.chessroad/engine'
-  );
+  static const platform = const MethodChannel('cn.apppk.chessroad/engine');
 
   // 启动引擎
   Future<void> startup() async {
@@ -98,7 +96,7 @@ class NativeEngine extends AiEngine {
       print(e);
     }
 
-    await send("setoption bookfiles ${bookFile.path}");
+    await send("开局库设置成功，开局库文件： ${bookFile.path}");
   }
 
   // 要引擎搜索局面的最佳着法
@@ -109,6 +107,7 @@ class NativeEngine extends AiEngine {
 
     // 发送局面信息给引擎
     send(buildPositionCommand(phase));
+
     // 指示在5秒钟内给出最佳着法
     send('go time 5000');
 
@@ -142,18 +141,21 @@ class NativeEngine extends AiEngine {
   }
 
   //根据引擎要求的格式，我们组织布局信息字符串
-  String buildPositionCommand(Phase phase){
+  String buildPositionCommand(Phase phase) {
     final startPhase = phase.lastCapturedPhase;
     final moves = phase.movesSinceLastCaptured();
 
-    if(moves.isEmpty) return 'position fen $startPhase';
+    if (moves.isEmpty) return 'position fen $startPhase';
 
+    //var side = phase.side;
+    print("发送给引擎的信息：moves：$moves");
     return 'position fen $startPhase moves $moves';
   }
 
   // 这个方法反复读取引擎的响应，每两次读取之间间隔一定的时间，默认读取读取指定的次数，还是没有
   // 搜索到希望的响应时，就返回''
-  Future<String> waitResponse(List<String> prefixes, {sleep = 100, times = 100}) async {
+  Future<String> waitResponse(List<String> prefixes,
+      {sleep = 100, times = 100}) async {
     //
     if (times <= 0) return '';
 
@@ -167,8 +169,7 @@ class NativeEngine extends AiEngine {
 
     return Future<String>.delayed(
       Duration(milliseconds: sleep),
-          () => waitResponse(prefixes, times: times - 1),
+      () => waitResponse(prefixes, times: times - 1),
     );
   }
-
 }

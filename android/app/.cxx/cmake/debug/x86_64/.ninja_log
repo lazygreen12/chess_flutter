@@ -1,0 +1,16 @@
+# ninja log v5
+1	195	0	CMakeFiles/engine.dir/src/main/cpp/engine/command-queue.cpp.o	233e9c30573873dc
+1	253	0	CMakeFiles/engine.dir/src/main/cpp/engine/command-channel.cpp.o	b5c08ed0ee04d39e
+2	366	0	CMakeFiles/engine.dir/src/main/cpp/engine/book.cpp.o	d2cd57c238b0b2c4
+4	368	0	CMakeFiles/engine.dir/src/main/cpp/engine/movesort.cpp.o	74d9bc451cca203c
+253	375	0	CMakeFiles/engine.dir/src/main/cpp/engine/pregen.cpp.o	8203e805ef68a0b6
+195	380	0	CMakeFiles/engine.dir/src/main/cpp/engine/preeval.cpp.o	6b020eb12ceebd4c
+4	397	0	CMakeFiles/engine.dir/src/main/cpp/engine/hash.cpp.o	efcbd7637e588b35
+1	401	0	CMakeFiles/engine.dir/src/main/cpp/cchess-engine.cpp.o	5c716f66b6808362
+2	402	0	CMakeFiles/engine.dir/src/main/cpp/engine/evaluate.cpp.o	843deed7253e2966
+3	426	0	CMakeFiles/engine.dir/src/main/cpp/engine/genmoves.cpp.o	397788a0d64c2ee4
+5	433	0	CMakeFiles/engine.dir/src/main/cpp/engine/position.cpp.o	1b78cb66e449ebb6
+2	475	0	CMakeFiles/engine.dir/src/main/cpp/engine/eleeye.cpp.o	76cca9c4cd23a123
+368	538	0	CMakeFiles/engine.dir/src/main/cpp/engine/ucci.cpp.o	b22929aab592d8c8
+367	566	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	f9b31e9b70af6d18
+566	775	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/x86_64/libengine.so	6e359a664068a147

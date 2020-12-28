@@ -88,7 +88,12 @@ class Move {
   //'step' 是UCCI引擎的移动字符串
   String step;
 
-  Move(this.from, this.to, {this.captured = Piece.Empty}){
+  // 这一步走完后的 FEN 记数，用于悔棋时恢复 FEN 步数 Counter
+  String counterMarks;
+
+  String stepName;
+
+  Move(this.from, this.to, {this.captured = Piece.Empty, this.counterMarks = '0 0'}){
     fx = from % 9;
     fy = from ~/ 9;
 

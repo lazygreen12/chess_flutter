@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   audioplayers: ^0.14.0
   path_provider: ^1.6.1
+  package_info: ^0.4.0+16
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'analysis.dart';
 import 'engine.dart';
 import '../cchess/cc-base.dart';
 import '../cchess/phase.dart';
@@ -15,7 +16,9 @@ class CloudEngine extends AiEngine{
     var response = await ChessDB.query(fen);
 
     //发生网络错误，直接返回
-    if(response == null) return EngineResponse('network-error');
+    if(response == null) {
+      return EngineResponse('network-error');
+    }
 
     if(!response.startsWith('move:')){
       print('ChessDB.query: $response\n');
@@ -44,21 +47,39 @@ class CloudEngine extends AiEngine{
             'move',
             value: Move.fromEngineStep(step),
           );
-        }else{
-          //云库没有遇到过这个局面，请求它执行后台计算
-          if(byUser){
-            response = await ChessDB.requestComputeBackground(fen);
-            print('ChessDB.requestComputeBackground: $response\n');
-          }
-          //这里每过2秒就查看它的计算结果
-          return Future<EngineResponse>.delayed(
-            Duration(seconds: 2),
-              () => search(phase, byUser: false),
-          );
         }
+      }else{
+        //云库没有遇到过这个局面，请求它执行后台计算
+        if(byUser){
+          response = await ChessDB.requestComputeBackground(fen);
+          print('ChessDB.requestComputeBackground: $response\n');
+        }
+        //这里每过5秒就查看它的计算结果
+        return Future<EngineResponse>.delayed(
+          Duration(seconds: 1),
+              () => search(phase, byUser: false),
+        );
       }
-      return EngineResponse('unknown-error');
     }
+    return EngineResponse('unknown-error');
+  }
+
+  // 给云库引擎添加分析方法，之后会调用前述的分析结果解析工具
+  static Future<EngineResponse> analysis(Phase phase) async {
+    //
+    final fen = phase.toFen();
+    var response = await ChessDB.query(fen);
+
+    if (response == null) return EngineResponse('network-error');
+
+    if (response.startsWith('move:')) {
+      final items = AnalysisFetcher.fetch(response);
+      if (items.isEmpty) return EngineResponse('no-result');
+      return EngineResponse('analysis', value: items);
+    }
+
+    print('ChessDB.query: $response\n');
+    return EngineResponse('unknown-error');
   }
 
 }
