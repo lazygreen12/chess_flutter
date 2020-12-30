@@ -1,7 +1,7 @@
 import 'package:chess_override/routes/setting-page.dart';
 
 import '../cchess/step-name.dart';
-import '../common/Toast.dart';
+import '../common/toast.dart';
 import '../engine/analysis.dart';
 
 import '../engine/engine.dart';

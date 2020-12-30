@@ -83,6 +83,7 @@ class Move {
   // 左上角为坐标原点
   int fx, fy, tx, ty;
 
+  //吃子目标棋子
   String captured;
 
   //'step' 是UCCI引擎的移动字符串

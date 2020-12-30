@@ -1,10 +1,8 @@
-
-
 import 'package:chess_override/cchess/phase.dart';
 
 import 'cc-base.dart';
 
-class CCRecorder{
+class CCRecorder {
   //无吃子步数、总回合数
   int halfMove, fullMove;
   String lastCapturedPhase;
@@ -17,6 +15,8 @@ class CCRecorder{
   CCRecorder({this.halfMove = 0, this.fullMove = 0, this.lastCapturedPhase});
 
   void stepIn(Move move, Phase phase) {
+    var side = phase.side;
+    print("查询棋子时所在side：$side");
     //
     if (move.captured != Piece.Empty) {
       halfMove = 0;
@@ -30,12 +30,14 @@ class CCRecorder{
       fullMove++;
     }
 
+    var beforeLength = _history.length;
+
     _history.add(move);
+
+    var afterLength = _history.length;
 
     if (move.captured != Piece.Empty) {
       lastCapturedPhase = phase.toFen();
-       var side = phase.side;
-      print("转化时phase的side方：$side");
     }
   }
 
@@ -59,7 +61,7 @@ class CCRecorder{
     return moves;
   }
 
-  CCRecorder.fromCounterMarks(String marks){
+  CCRecorder.fromCounterMarks(String marks) {
     var segments = marks.split(' ');
     if (segments.length != 2) {
       throw 'Error: Invalid Counter Marks: $marks';
@@ -78,7 +80,7 @@ class CCRecorder{
     return '$halfMove $fullMove';
   }
 
-  String buildManualText({cols = 2}){
+  String buildManualText({cols = 2}) {
     var manualText = '';
 
     for (var i = 0; i < _history.length; i++) {

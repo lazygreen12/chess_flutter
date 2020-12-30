@@ -14,3 +14,5 @@
 2	1238	0	CMakeFiles/engine.dir/src/main/cpp/engine/eleeye.cpp.o	19bff1af9d351639
 903	1271	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	fd1335009c4ec7b1
 1271	1526	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/x86/libengine.so	f716d492bbfe4c2a
+5	801	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	fd1335009c4ec7b1
+801	2788	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/x86/libengine.so	f716d492bbfe4c2a

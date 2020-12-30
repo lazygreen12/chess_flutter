@@ -14,3 +14,5 @@
 880	1130	0	CMakeFiles/engine.dir/src/main/cpp/engine/ucci.cpp.o	4144bd62473c1d45
 820	1145	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	8073ed8465734acc
 1145	1447	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libengine.so	77844aee3c59ecaa
+31	2254	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	8073ed8465734acc
+2254	3412	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libengine.so	77844aee3c59ecaa

@@ -113,11 +113,6 @@ class _MainMenuState extends State<MainMenu> with TickerProviderStateMixin {
             ),
             onPressed: () => navigateTo(BattlePage(EngineType.Cloud)),
           ),
-          // Expanded(child: SizedBox()),
-          // FlatButton(
-          //   child: Text('排行榜', style: menuItemStyle),
-          //   onPressed: () {},
-          // ),
           Expanded(
             child: SizedBox(),
             flex: 6,

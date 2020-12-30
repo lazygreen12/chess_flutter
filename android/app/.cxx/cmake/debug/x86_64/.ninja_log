@@ -14,3 +14,5 @@
 368	538	0	CMakeFiles/engine.dir/src/main/cpp/engine/ucci.cpp.o	b22929aab592d8c8
 367	566	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	f9b31e9b70af6d18
 566	775	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/x86_64/libengine.so	6e359a664068a147
+5	459	0	CMakeFiles/engine.dir/src/main/cpp/engine/search.cpp.o	f9b31e9b70af6d18
+459	1960	0	/Users/chenzhixin/Documents/IDEA/chess_override/build/app/intermediates/cmake/debug/obj/x86_64/libengine.so	6e359a664068a147

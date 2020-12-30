@@ -1,11 +1,8 @@
 import 'package:package_info/package_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import '../common/toast.dart';
 import '../common/color-consts.dart';
 import '../common/config.dart';
 import '../services/audios.dart';
-import 'edit-page.dart';
 
 class SettingsPage extends StatefulWidget {
   @override

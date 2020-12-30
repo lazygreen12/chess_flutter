@@ -15,6 +15,8 @@ class Battle {
   }
 
   Phase _phase;
+
+  //标记当前位置和前一个位置
   int _focusIndex, _blurIndex;
 
   init() {

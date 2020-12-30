@@ -147,8 +147,12 @@ class NativeEngine extends AiEngine {
 
     if (moves.isEmpty) return 'position fen $startPhase';
 
-    //var side = phase.side;
-    print("发送给引擎的信息：moves：$moves");
+    var side = phase.side;
+    print("信息");
+    print("side:$side");
+    print("fen:$startPhase");
+    print("move:$moves");
+
     return 'position fen $startPhase moves $moves';
   }
 

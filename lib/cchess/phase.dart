@@ -1,6 +1,4 @@
 
-import 'package:flutter/material.dart';
-
 import 'cc-base.dart';
 import 'cc-recorder.dart';
 import 'step-name.dart';
@@ -86,6 +84,7 @@ class Phase {
     final captured = _pieces[to];
 
     final move = Move(from, to, captured: captured);
+
     StepName.translate(this, move);
     _recorder.stepIn(move, this);
 
@@ -169,14 +168,14 @@ class Phase {
         final piece = pieceAt(row * 9 + column);
 
         if (piece == Piece.Empty) {
-          //
+          //棋子前面的数
           emptyCounter++;
           //
         } else {
           //
           if (emptyCounter > 0) {
-            fen += emptyCounter.toString();
-            emptyCounter = 0;
+            fen += emptyCounter.toString();//棋子加入当前行fen
+            emptyCounter = 0; //清空重新开始计算
           }
 
           fen += piece;
@@ -199,25 +198,24 @@ class Phase {
     return fen;
   }
 
-  bool flag = false;
   String movesSinceLastCaptured() {
     //
     var steps = '', posAfterLastCaptured = 0;
-
-    print("历史移动步数$_recorder.stepsCount");
 
     for (var i = _recorder.stepsCount - 1; i >= 0; i--) {
       if (_recorder.stepAt(i).captured != Piece.Empty) break;
       posAfterLastCaptured = i;
     }
-    print("posAfterLastCaptured:$posAfterLastCaptured");
 
-    for (var i = posAfterLastCaptured; i < _recorder.stepsCount; i++) {
-      steps += ' ${_recorder.stepAt(i).step}';
+    if(posAfterLastCaptured != 0){
+      for (var i = posAfterLastCaptured -1 ; i < _recorder.stepsCount; i++) {
+        steps += ' ${_recorder.stepAt(i).step}';
+      }
+    }else{
+      for (var i = posAfterLastCaptured; i < _recorder.stepsCount; i++) {
+        steps += ' ${_recorder.stepAt(i).step}';
+      }
     }
-    flag = true;
-
-    print("历史移动步数$steps");
 
     return steps.length > 0 ? steps.substring(1) : '';
   }
