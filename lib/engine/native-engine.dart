@@ -109,7 +109,7 @@ class NativeEngine extends AiEngine {
     send(buildPositionCommand(phase));
 
     // 指示在5秒钟内给出最佳着法
-    send('go time 5000');
+    send('go time 1000');
 
     // 等待引擎的回复，走到读取到 bestmove 或是 nobestmove 打头的字样
     final response = await waitResponse(['bestmove', 'nobestmove']);
@@ -146,12 +146,6 @@ class NativeEngine extends AiEngine {
     final moves = phase.movesSinceLastCaptured();
 
     if (moves.isEmpty) return 'position fen $startPhase';
-
-    var side = phase.side;
-    print("信息");
-    print("side:$side");
-    print("fen:$startPhase");
-    print("move:$moves");
 
     return 'position fen $startPhase moves $moves';
   }

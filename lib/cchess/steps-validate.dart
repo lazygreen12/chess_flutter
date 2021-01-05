@@ -37,7 +37,7 @@ class StepValidate {
 
     if (!valid) return false;
 
-    if (ChessRules.willBeChecked(phase, move)) return false;
+    //if (ChessRules.willBeChecked(phase, move)) return false;
 
     if (ChessRules.willKingsMeeting(phase, move)) return false;
 

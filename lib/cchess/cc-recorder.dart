@@ -15,8 +15,6 @@ class CCRecorder {
   CCRecorder({this.halfMove = 0, this.fullMove = 0, this.lastCapturedPhase});
 
   void stepIn(Move move, Phase phase) {
-    var side = phase.side;
-    print("查询棋子时所在side：$side");
     //
     if (move.captured != Piece.Empty) {
       halfMove = 0;

@@ -67,6 +67,7 @@ class Battle {
 
   BattleResult scanBattleResult() {
     final forPerson = (_phase.side == Side.Red);
+    final forComputer = (_phase.side == Side.Black);
 
     if(scanLongCatch()){
       return forPerson ? BattleResult.Win : BattleResult.Lose;
@@ -74,6 +75,16 @@ class Battle {
 
     if(ChessRules.beKilled(_phase)){
       return forPerson ? BattleResult.Lose : BattleResult.Win;
+    }
+
+    //判断电脑输,相对的玩家就获得胜利
+    for(int i =0; i < 3; i++){
+      for(int j =0; j < 3; j++){
+        var willLose = i * 9 + j + 3;
+        if(_phase.pieceAt(willLose) == 'k'){
+          return BattleResult.Win;
+        }
+      }
     }
 
     //游戏不超过60回合

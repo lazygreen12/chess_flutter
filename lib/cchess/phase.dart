@@ -79,13 +79,18 @@ class Phase {
 
   String move(int from, int to) {
     //
-    if (!validateMove(from, to)) return null;
+    if (!validateMove(from, to)) {
+      print("不能走");
+      validateMove(from, to);
+      return null;
+    }
 
     final captured = _pieces[to];
 
     final move = Move(from, to, captured: captured);
 
     StepName.translate(this, move);
+
     _recorder.stepIn(move, this);
 
     // 修改棋盘
@@ -206,6 +211,7 @@ class Phase {
       if (_recorder.stepAt(i).captured != Piece.Empty) break;
       posAfterLastCaptured = i;
     }
+    print("计算的:$posAfterLastCaptured");
 
     if(posAfterLastCaptured != 0){
       for (var i = posAfterLastCaptured -1 ; i < _recorder.stepsCount; i++) {
